@@ -25,6 +25,11 @@ class Match {
         }
 
         Player winner = playerA.isAlive() ? playerA : playerB;
-        System.out.println("Winner: Player with health " + winner.getHealth());
+        if(winner == playerA) {
+        	System.out.println("playerA is the winner.");
+        }else {
+        	System.out.println("playerB is the winner.");
+        }
+        
     }
 }
