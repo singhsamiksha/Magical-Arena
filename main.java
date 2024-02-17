@@ -23,7 +23,7 @@ public class Main {
         Player playerB = createPlayer(scanner);
 
         Match match = new Match(playerA, playerB);
-        match.fight();
+        match.start();
 
         scanner.close();
         

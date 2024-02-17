@@ -1,4 +1,4 @@
-class Match {
+public class Match {
     private Player playerA;
     private Player playerB;
 
@@ -7,18 +7,22 @@ class Match {
         this.playerB = playerB;
     }
 
-    public void fight() {
-        Player attacker = playerA.getHealth() < playerB.getHealth() ? playerA : playerB;
-        Player defender = attacker == playerA ? playerB : playerA;
+    public void start() {
+    	Player attacker;
+    	Player defender;
+    	if(playerA.getHealth()< playerB.getHealth()) {
+    		attacker = playerA;
+            defender = playerB;
+    	}
+    	else {
+    		attacker = playerB;
+            defender = playerA;
+    	}
+        
 
         while (playerA.isAlive() && playerB.isAlive()) {
-            int attackDamage = attacker.calculateAttackDamage();
-            int defendStrength = defender.calculateDefendStrength();
-
-            int damageTaken = Math.max(0, attackDamage - defendStrength);
-            defender.receiveDamage(damageTaken);
-
-            // Swap attacker and defender
+            attack(attacker, defender);
+            // Swap attacker and defender for the next turn
             Player temp = attacker;
             attacker = defender;
             defender = temp;
@@ -26,10 +30,18 @@ class Match {
 
         Player winner = playerA.isAlive() ? playerA : playerB;
         if(winner == playerA) {
-        	System.out.println("playerA is the winner.");
-        }else {
-        	System.out.println("playerB is the winner.");
+        	System.out.println("Player A is the winner.");
         }
-        
+        else {
+        	System.out.println("Player B is the winner.");
+        }
+    }
+
+    public void attack(Player attacker, Player defender) {
+        int attackDamage = attacker.calculateAttackDamage();
+        int defendStrength = defender.calculateDefendStrength();
+
+        int damageTaken = Math.max(0, attackDamage - defendStrength);
+        defender.receiveDamage(damageTaken);
     }
 }
