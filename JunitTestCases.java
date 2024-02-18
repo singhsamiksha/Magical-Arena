@@ -19,8 +19,8 @@ public class JunitTestCases {
     @Test
     public void testPlayerAWin(){
         // Assuming playerA wins, playerB loses
-        Player playerA = new Player(5000, 5, 10);
-        Player playerB = new Player(100, 10, 50);
+        Player playerA = new Player(5000, 5, 10, "Player A");
+        Player playerB = new Player(100, 10, 50, "Player B");
         Match match = new Match(playerA, playerB);
         match.start();
         assertTrue(playerA.isAlive());
@@ -29,8 +29,8 @@ public class JunitTestCases {
     @Test
     public void testPlayerBWin(){
         // Assuming playerA wins, playerB loses
-        Player playerA = new Player(5, 5, 10);
-        Player playerB = new Player(100, 10, 50);
+        Player playerA = new Player(5, 5, 10, "Player A");
+        Player playerB = new Player(100, 10, 50, "Player B");
         Match match = new Match(playerA, playerB);
         match.start();
         assertTrue(playerB.isAlive());

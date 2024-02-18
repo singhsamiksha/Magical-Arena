@@ -4,19 +4,26 @@ class Player {
     private int health;
     private int strength;
     private int attack;
+    private String name;
     private Random random;
     
     // Constructor to initialize a player with given attributes
-    public Player(int health, int strength, int attack) {
+    public Player(int health, int strength, int attack, String name) {
         this.health = health;
         this.strength = strength;
         this.attack = attack;
+        this.name = name;
         this.random = new Random();
     }
  
     // Method to get the player's current health
     public int getHealth() {
         return health;
+    }
+    
+ // To get the name of the player
+    public String getName() {
+        return this.name;
     }
 
     // Method to check if the player is alive (health > 0)
@@ -34,16 +41,24 @@ class Player {
  
     // Method to simulate rolling a six-sided die
     public int rollDice() {
-        return random.nextInt(6) + 1; // Return a random integer between 1 and 6
+    	int diceValue = random.nextInt(6) + 1;
+        System.out.println(this.getName() + ": Rolling dice; Got dice value of " + diceValue);
+        return diceValue; // Return a random integer between 1 and 6
     }
 
     // Method to calculate the damage inflicted by the player's attack
     public int calculateAttackDamage() {
-        return attack * rollDice();
+    	int diceValue = rollDice();
+        int attackValue = attack * diceValue;
+        System.out.println(this.getName() + ": Attack Value: " + attackValue);
+        return attackValue;
     }
 
     // Method to calculate the defense strength of the player
     public int calculateDefendStrength() {
-        return strength * rollDice();
+    	int diceValue = rollDice();
+        int defendValue = strength * diceValue;
+        System.out.println(this.getName() + ": Defend Value: " + defendValue);
+        return defendValue;
     }
 }
