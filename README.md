@@ -11,8 +11,10 @@
 5. Navigate to the directory where you extracted the zip file.
 
  ## Compile and run the source code
- 1. Compile the Java files using a Java compiler using command javac Main.java Player.java Match.java
- 2. Run the game using command Main.java
+ 1. Compile the Java files using a Java compiler using command <br>
+ `javac Main.java`
+ 1. Run the game using command <br>
+ `java Main`
 
  ## How to play
  1. Enter the attributes for Player A when prompted (health, strength, attack).
